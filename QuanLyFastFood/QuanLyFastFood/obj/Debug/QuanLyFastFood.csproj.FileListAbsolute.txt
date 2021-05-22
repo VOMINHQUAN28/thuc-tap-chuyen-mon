@@ -1,0 +1,10 @@
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\bin\Debug\QuanLyFastFood.exe.config
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\bin\Debug\QuanLyFastFood.exe
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\bin\Debug\QuanLyFastFood.pdb
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.csprojAssemblyReference.cache
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.Form1.resources
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.Properties.Resources.resources
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.csproj.GenerateResource.cache
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.csproj.CoreCompileInputs.cache
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.exe
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.pdb
