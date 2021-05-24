@@ -1,4 +1,4 @@
-﻿use [Quan ly FastFood]
+﻿use QuanlyFastFood
 GO
 
 create table TableFood
@@ -59,3 +59,11 @@ foreign key (idBill) references dbo.Bill(id),
 foreign key (idFood) references dbo.Food(id)
 )
 GO
+ insert into Account (UserName,DisplayName,PassWord,Type)
+ values
+ (N'K9',N'RongK9',N'1',1)
+ insert into Account (UserName,DisplayName,PassWord,Type)
+ values
+ (N'staff',N'staff',N'1',0)
+ select * from Account
+ create proc

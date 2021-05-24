@@ -8,3 +8,6 @@ D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.cs
 D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.csproj.CoreCompileInputs.cache
 D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.exe
 D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.pdb
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.fTableManager.resources
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.fAccountProfile.resources
+D:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanLyFastFood\obj\Debug\QuanLyFastFood.fAdmin.resources
