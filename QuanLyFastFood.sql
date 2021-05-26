@@ -62,8 +62,46 @@ GO
  insert into Account (UserName,DisplayName,PassWord,Type)
  values
  (N'K9',N'RongK9',N'1',1)
+
  insert into Account (UserName,DisplayName,PassWord,Type)
  values
  (N'staff',N'staff',N'1',0)
- select * from Account
- create proc
+  GO
+  create proc USP_GetAccountByUserName
+  @userName nvarchar (100)
+  AS
+  BEGIN
+  select *from Account where UserName=@userName
+  END
+   GO
+   Insert into Account (UserName,DisplayName,PassWord,Type) values(N'quanvt',N'vmquan',N'123',0)
+  EXEC USP_GetAccountByUserName @userName=N'K9'
+  
+  delete from Account where PassWord=N'123' 
+ 
+  SELECT * FROM Account WHERE UserName = N''OR 1=1--
+
+  CREATE PROC USP_Login
+  @userName nvarchar(100), @passWord nvarchar(100)
+  AS
+  BEGIN
+  SELECT * FROM Account WHERE UserName=@userName and PassWord=@passWord
+  END
+  GO
+
+  DECLARE @i int =0
+  while @i<=10
+  Begin
+  Insert TableFood(name) values (N'Bàn' + CAST(@i as nvarchar(100)))
+  set @i=@i+1
+  END
+  Insert into TableFood(name,status)values (N'Bàn 1')
+  Insert into TableFood(name,status)values (N'Bàn 2')
+Insert into TableFood(name,status)values (N'Bàn 3')
+
+create proc USP_GetTableList
+AS SELECT * FROM TableFood
+GO
+EXEC USP_GetTableList
+
+UPdate TableFood set status=N'Có người' where id=9

@@ -8,11 +8,21 @@ using System.Threading.Tasks;
 
 namespace QuanLyFastFood.DAO
 {
+
     public class DataProvider
     {
-        private string connectionSTR = @"Data Source = DESKTOP-RJ5ATGR\SQLEXPRESS; Initial Catalog = QuanlyFastFood; Integrated Security = True";
+        private static DataProvider instance;
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
+            private set { DataProvider.instance = value; }
+        }
+        private DataProvider() { }
 
-        public DataTable ExcuteQuery(string query, object[] paraseter = null)
+        private string connectionSTR = @"Data Source=DESKTOP-RJ5ATGR\SQLEXPRESS;Initial Catalog = QuanlyFastFood; Integrated Security = True";
+
+
+        public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
 
@@ -22,7 +32,7 @@ namespace QuanLyFastFood.DAO
 
                 SqlCommand command = new SqlCommand(query, connection);
 
-                if (paraseter != null)
+                if (parameter != null)
                 {
 
                     string[] listPara = query.Split(' ');
@@ -33,7 +43,7 @@ namespace QuanLyFastFood.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, paraseter[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
 
                             i++;
                         }
@@ -53,9 +63,12 @@ namespace QuanLyFastFood.DAO
 
 
         }
-        public object ExecuteScalar(string query, object[] paraseter = null)
+
+      
+
+        public int ExecuteNonQuery(string query, object[] parameter = null)
         {
-            object data = 0;
+            int data = 0;
 
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
@@ -63,7 +76,7 @@ namespace QuanLyFastFood.DAO
 
                 SqlCommand command = new SqlCommand(query, connection);
 
-                if (paraseter != null)
+                if (parameter != null)
                 {
 
                     string[] listPara = query.Split(' ');
@@ -74,7 +87,43 @@ namespace QuanLyFastFood.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, paraseter[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
+
+                            i++;
+                        }
+                    }
+                }
+
+                data = command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            return data;
+
+
+        }
+        public object ExecuteScalar(string query, object[] parameter = null)
+        {
+            object data = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+
+                    string[] listPara = query.Split(' ');
+
+                    int i = 0;
+
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
 
                             i++;
                         }
@@ -83,11 +132,10 @@ namespace QuanLyFastFood.DAO
 
                 data = command.ExecuteScalar();
 
-              connection.Close();
+                connection.Close();
             }
             return data;
 
-
         }
     }
-    }
+}

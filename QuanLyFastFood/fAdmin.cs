@@ -17,19 +17,11 @@ namespace QuanLyFastFood
         public fAdmin()
         {
             InitializeComponent();
-            LoadAccountList();
+           
         }
+        
 
-
-        void LoadAccountList()
-        {
-            string query = " Exec dbo.USP_GetListAccountByUserName @userName";
-
-            DataProvider provider = new DataProvider();
-
-            dtgvAccount.DataSource = provider.ExcuteQuery(query, new object[] { "staff"});
-
-        }
+       
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
