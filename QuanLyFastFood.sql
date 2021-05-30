@@ -157,5 +157,61 @@ Go
 	  SELECT f.name,bi.count,f.price, f.price*bi.count AS totalPrice FROM BillInfo AS bi, Bill AS b, Food AS f 
 		WHERE bi.idBill= b.id AND bi.idFood= f.id AND b.status=0 AND b.idTable=4
 
+		DELETE FROM Food WHERE id>7
+
+		SELECT * FROM FoodCategory
+		SELECT * FROM Food
+
+		CREATE PROC USP_InsertBill
+		@idTable INT
+		AS
+		BEGIN
+		INSERT Bill(DateCheckIn,DateCheckOut,idTable,status) values(GETDATE(),NULL,@idTable,0)
+		END 
+		GO
+
+		ALTER PROC USP_InsertBillInfo
+
+		@idBill INT, @idFood INT, @count INT
+
+		AS
+
+		BEGIN
+
+		DECLARE @isExitsBillInfo INT;
+
+		DECLARE @foodCount INT = 1
+
+		SELECT @isExitsBillInfo = id, @foodCount = b.count 
+		FROM BillInfo AS b 
+		WHERE idBill=@idBill AND idFood=@idFood
+
+		IF(@isExitsBillInfo > 0)
+
+		BEGIN
+		DECLARE @newCount INT = @foodCount + @count
+
+		IF(@newCount > 0)
+
+		UPDATE BillInfo SET count = @foodCount + @count WHERE idFood=@idFood
+		ELSE
+		DELETE BillInfo WHERE idBill = @idBill AND idFood = @idFood
+
 		
-	   
+
+		END
+
+		ELSE
+
+		BEGIN
+
+		 Insert BillInfo(idBill,idFood,count) values(@idBill,@idFood,@count)
+
+		END
+		END 
+		GO
+		select * from TableFood
+		
+
+		 select * from Food
+		 select * from FoodCategory

@@ -21,8 +21,24 @@ namespace QuanLyFastFood
         {
             InitializeComponent();
             LoadTable();
+            LoadCategory();
         }
         #region Method
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instace.GetListCategory();
+
+            cbCategory.DataSource = listCategory;
+            cbCategory.DisplayMember = "Name";
+        }
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Food> listFood = FoodDAO.Instace.GetFoodByCategoryID(id);
+
+            cbFood.DataSource = listFood;
+            cbFood.DisplayMember = "Name";
+
+        }
         void LoadTable()
         {
             List<Table> tableList = TableDAO.Instance.LoadTableList();
@@ -74,6 +90,7 @@ namespace QuanLyFastFood
         void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
         
@@ -115,6 +132,44 @@ namespace QuanLyFastFood
         private void flpTable_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+
+             return;
+            
+
+            Category selected = cb.SelectedItem as Category;
+
+            id = selected.ID;
+
+
+            LoadFoodListByCategoryID(id);
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+            int idBill = BillDAO.Instace.GetUncheckBillIDByTableID(table.ID);
+            int foodId = (cbFood.SelectedItem as Food).ID;
+            int count = (int)nmFoodCount.Value;
+
+            if (idBill == -1)
+            {
+                BillDAO.Instace.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instace.GetMaxIDBill(), foodId , count);
+            }
+            else
+            {
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodId, count);
+
+            }
+            ShowBill(table.ID);
         }
     }
 }
