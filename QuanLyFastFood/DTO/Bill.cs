@@ -10,12 +10,13 @@ namespace QuanLyFastFood.DTO
     class Bill
     {
 
-        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status)
+        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status,int discount = 0)
         {
             this.ID = id;
             this.DateCheckIN = dateCheckIn;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
+            this.Discount = discount;
 
         }
         public Bill(DataRow row)
@@ -27,7 +28,16 @@ namespace QuanLyFastFood.DTO
             if (dateCheckOutTemp.ToString() !="")
             this.DateCheckOut = (DateTime?)dateCheckOutTemp;
             this.Status = (int)row["status"];
+            if(row["discount"].ToString() != "")
+            this.Discount = (int)row["discount"];
         }
+        private int discount;
+        public int Discount
+        {
+            get { return discount; }
+            set { discount = value; }
+        }
+
         private int status;
         public int Status
         {
@@ -54,6 +64,6 @@ namespace QuanLyFastFood.DTO
             set { iD = value; }
         }
 
-
+        
     }
 }

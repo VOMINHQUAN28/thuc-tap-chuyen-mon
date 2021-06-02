@@ -166,7 +166,7 @@ Go
 		@idTable INT
 		AS
 		BEGIN
-		INSERT Bill(DateCheckIn,DateCheckOut,idTable,status) values(GETDATE(),NULL,@idTable,0)
+		INSERT Bill(DateCheckIn,DateCheckOut,idTable,status,discount) values(GETDATE(),NULL,@idTable,0,0)
 		END 
 		GO
 
@@ -211,7 +211,7 @@ Go
 		END 
 		GO
 		
-		CREATE TRIGGER UTG_UpdateBillInfo ON BillInfo FOR INSERT,UPDATE
+		ALTER TRIGGER UTG_UpdateBillInfo ON BillInfo FOR INSERT,UPDATE
 		AS
 		BEGIN
 
@@ -222,12 +222,19 @@ Go
 		DECLARE @idTable INT
 
 		SELECT @idTable = idTable FROM Bill WHERE id=@idBill AND status = 0
+		DECLARE @count INT
+		SELECT @count = COUNT (*) FROM BillInfo WHERE idBill= @idBill
 
-		UPDATE TableFood SET status = N'Có người' WHERE id=@idTable
+		IF(@count > 0)
+		UPDATE TableFood SET status = N'Có người' WHERE id =@idTable
+		
+		ELSE
+		UPDATE TableFood SET status = N'Trống' WHERE id =@idTable
+END		
+GO
 
-		END
-
-		GO
+  
+	
 
 		CREATE TRIGGER UTG_UpdateBill ON Bill FOR UPDATE
 		AS
@@ -252,4 +259,78 @@ Go
 		END
 		GO
 
+		UPDATE Bill SET discount = 0
+
+		GO
+
+		ALTER PROC USP_SwitchTable
+		@idTable1 Int, @idTable2 INT
 		
+		AS
+		BEGIN
+		DECLARE @idFirstBill INT
+		DECLARE @idSecondBill INT
+		DECLARE @isFirstTableEmty INT = 1
+		DECLARE @isSecondTableEmty INT = 1
+
+		SELECT @idSecondBill = id FROM Bill WHERE idTable = @idTable2 AND status = 0
+			SELECT @idFirstBill = id FROM Bill WHERE idTable = @idTable1 AND status = 0
+
+			PRINT @idFirstBill
+			PRINT @idSecondBill
+			PRINT '--------'
+
+			IF(@idFirstBill IS NULL)
+			BEGIN
+
+
+			INSERT INTO Bill(DateCheckIn,DateCheckOut,idTable,status) VALUES (GETDATE(),NULL,@idTable1,0)
+
+			SELECT @idFirstBill = MAX(id) FROM Bill WHERE idTable = @idTable1 AND status = 0
+
+			
+
+			 END
+
+			 SELECT @isFirstTableEmty = COUNT (*) FROM BillInfo WHERE idBill =@idFirstBill
+
+			PRINT @idFirstBill
+			PRINT @idSecondBill
+			PRINT '--------'
+
+
+			 IF(@idSecondBill IS NULL)
+			BEGIN
+			PRINT '000000002'
+			INSERT INTO Bill(DateCheckIn,DateCheckOut,idTable,status) VALUES (GETDATE(),NULL,@idTable2,0)
+
+			SELECT @idSecondBill = MAX(id) FROM Bill WHERE idTable = @idTable2 AND status = 0
+
+			
+
+			 END
+
+			 SELECT @isSecondTableEmty = COUNT (*) FROM BillInfo WHERE idBill =@idSecondBill
+
+		SELECT id INTO IDBillInfoTable FROM BillInfo WHERE idBill=@idSecondBill
+		UPDATE BillInfo SET idBill= @idSecondBill WHERE idBill=@idFirstBill
+		UPDATE BillInfo SET idBill= @idFirstBill WHERE id IN (SELECT * FROM IDBillInfoTable)
+
+		DROP Table IDBillInfoTable
+
+		IF(@isFirstTableEmty = 0)
+		UPDATE TableFood SET status = N'Trống' WHERE id = @idTable2
+
+		IF(@isSecondTableEmty = 0)
+		UPDATE TableFood SET status = N'Trống' WHERE id = @idTable1
+
+
+		END
+		GO
+		
+		EXEC USP_SwitchTable @idTable1= 2, @idTable2 = 4
+
+
+		SELECT * FROM TableFood
+
+		UPDATE TableFood SET status = N'Trống'
