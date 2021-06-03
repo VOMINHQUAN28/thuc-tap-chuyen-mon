@@ -334,3 +334,42 @@ GO
 		SELECT * FROM TableFood
 
 		UPDATE TableFood SET status = N'Trống'
+
+		ALTER TABLE Bill ADD totalPrice FLOAT
+		DELETE Bill
+		GO
+
+		
+
+		alter PROC USP_GetListBillByDate
+		@checkIN date, @checkout date
+		AS
+		BEGIN
+		SELECT   t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [Ngày vào], DateCheckOut AS [Ngày ra], discount AS [Giảm giá]
+		FROM Bill AS b, TableFood AS t
+		WHERE DateCheckIn >= @checkIN AND DateCheckOut <= @checkout AND b.status = 1 AND t.id = b.idTable 
+		END 
+		GO
+
+		CREATE PROC USP_UpdateAccount
+		@userName NVARCHAR(100), @displayName NVARCHAR(100) , @password NVARCHAR(100) , @newPassword NVARCHAR(100)
+		AS
+		BEGIN
+		DECLARE @isRightPass INT =0
+		
+		SELECT @isRightPass = COUNT (*) FROM Account WHERE UserName = @userName AND PassWord = @password
+
+		IF(@isRightPass = 1)
+		BEGIN
+
+		IF(@newPassword = NULL OR @newPassword = '')
+		BEGIN
+		UPDATE Account SET DisplayName = @displayName WHERE UserName= @userName
+		END
+		ELSE
+		UPDATE Account SET DisplayName =@displayName, PassWord = @newPassword WHERE UserName = @userName
+		END
+        END
+		GO
+
+		

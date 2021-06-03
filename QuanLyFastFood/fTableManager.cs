@@ -17,12 +17,30 @@ namespace QuanLyFastFood
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        private Account loginAccount;
+
+        public Account LoginAccount
         {
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+        }
+
+        public fTableManager(Account acc)
+        {
+            
+
             InitializeComponent();
+            this.LoginAccount = acc;
+
             LoadTable();
             LoadCategory();
             LoadComboboxTable(cbSwitchTable);
+        }
+
+        void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+            thôngTinTàiKhoảnToolStripMenuItem.Text += "(" + LoginAccount.DisplayName + ")";
         }
         #region Method
         void LoadCategory()
@@ -120,10 +138,16 @@ namespace QuanLyFastFood
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
+           
             
             
+        }
+        void f_UpdateAccount(object senders, AccountEvent e)
+        {
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản ("+e.Acc.DisplayName + ")";
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,7 +217,7 @@ namespace QuanLyFastFood
             {
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho bàn {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} /100) X {2} = {3}",table.Name,totalPrice,discount,finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instace.CheckOut(idBill,discount);
+                    BillDAO.Instace.CheckOut(idBill,discount,(float)finalTotalPrice);
                     ShowBill(table.ID);
                     LoadTable();
                 }

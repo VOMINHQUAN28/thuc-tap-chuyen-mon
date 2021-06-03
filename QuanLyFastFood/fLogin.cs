@@ -1,4 +1,5 @@
 ﻿using QuanLyFastFood.DAO;
+using QuanLyFastFood.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,9 +40,10 @@ namespace QuanLyFastFood
             string userName = txbUserName.Text;
 
             string passWord = txbPassWord.Text;
-            if(Login(userName ,passWord)){
-
-                fTableManager f = new fTableManager();
+            if(Login(userName ,passWord))
+            {
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                fTableManager f = new fTableManager(loginAccount);
 
                 this.Hide();
 

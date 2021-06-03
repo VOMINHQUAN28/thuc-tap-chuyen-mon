@@ -17,9 +17,16 @@ namespace QuanLyFastFood
         public fAdmin()
         {
             InitializeComponent();
-           
+            LoadListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadDateTimePickerBill();
         }
-        
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month,1);
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+
+        }
 
        
 
@@ -69,6 +76,21 @@ namespace QuanLyFastFood
         }
 
         private void tpAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+        void LoadListByDate(DateTime checkIn , DateTime checkOut)
+        {
+            dtgvBill.DataSource = BillDAO.Instace.GetBillListByDate(checkIn, checkOut);
+        }
+
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
+        }
+
+        private void tcBill_Click(object sender, EventArgs e)
         {
 
         }

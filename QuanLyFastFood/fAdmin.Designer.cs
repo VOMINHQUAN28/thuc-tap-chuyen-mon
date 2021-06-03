@@ -164,6 +164,7 @@
             this.tcBill.TabIndex = 4;
             this.tcBill.Text = "Doanh thu";
             this.tcBill.UseVisualStyleBackColor = true;
+            this.tcBill.Click += new System.EventHandler(this.tcBill_Click);
             // 
             // panel2
             // 
@@ -183,6 +184,7 @@
             this.btnViewBill.TabIndex = 3;
             this.btnViewBill.Text = "Thống kê";
             this.btnViewBill.UseVisualStyleBackColor = true;
+            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // dtpkToDate
             // 
@@ -209,12 +211,13 @@
             // 
             // dtgvBill
             // 
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Location = new System.Drawing.Point(-3, -26);
+            this.dtgvBill.Location = new System.Drawing.Point(-3, -28);
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowHeadersWidth = 51;
             this.dtgvBill.RowTemplate.Height = 24;
-            this.dtgvBill.Size = new System.Drawing.Size(680, 367);
+            this.dtgvBill.Size = new System.Drawing.Size(680, 369);
             this.dtgvBill.TabIndex = 0;
             // 
             // tpTable

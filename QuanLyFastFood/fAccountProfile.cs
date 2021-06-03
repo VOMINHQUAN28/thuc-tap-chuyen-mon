@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyFastFood.DAO;
+using QuanLyFastFood.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,61 @@ namespace QuanLyFastFood
 {
     public partial class fAccountProfile : Form
     {
-        public fAccountProfile()
+        private Account loginAccount;
+
+        public Account LoginAccount
         {
-            InitializeComponent();
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount); }
         }
 
+        public fAccountProfile(Account acc)
+        {
+            InitializeComponent();
+            LoginAccount = acc;
+        }
+        void ChangeAccount(Account acc)
+        {
+            txbUserName.Text = LoginAccount.UserName;
+            txbDisPlayName.Text = LoginAccount.DisplayName;
+        }
+
+        void UpdateAccountInfo()
+        {
+            string displayName = txbDisPlayName.Text;
+            string password = txbPassWord.Text;
+            string newpass = txbNewPass.Text;
+            string reenterpass = txbReEnterPass.Text;
+            string userName = txbUserName.Text;
+
+            if (!newpass.Equals(reenterpass))
+            {
+                MessageBox.Show("Vui lòng nhập lại mật khẩu đúng với mật khẩu mới!");
+            }
+
+            else
+            {
+                if(AccountDAO .Instance.UpdateAccount(userName, displayName, password, newpass))
+                {
+                    MessageBox.Show("Cập nhật thành công");
+                    if(updateAccount != null)
+                        updateAccount(this, new AccountEvent(AccountDAO.Instance.GetAccountByUserName(userName)));
+                }
+
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đúng mật khẩu");
+                }
+            }
+
+        }
+
+        private event EventHandler<AccountEvent> updateAccount;
+        public event EventHandler <AccountEvent> UpdateAccount
+        {
+            add { updateAccount += value; }
+            remove { updateAccount -= value; }
+        }
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
@@ -25,6 +77,30 @@ namespace QuanLyFastFood
         private void btnExti_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void fAccountProfile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateAccountInfo();
+        }
+    }
+    public class AccountEvent : EventArgs
+    {
+        private Account acc;
+
+        public Account Acc
+        {
+            get { return acc; }
+            set { acc = value; }
+        }
+        public AccountEvent(Account acc)
+        {
+            this.Acc = acc;
         }
     }
 }
