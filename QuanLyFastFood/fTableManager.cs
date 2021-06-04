@@ -153,9 +153,33 @@ namespace QuanLyFastFood
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.InsertFood += f_InsertFood;
+            f.DeleteFood += f_DeleteFood;
+            f.UpdateFood += f_UpdateFood;
             f.ShowDialog();
         }
 
+        void f_InsertFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if(lsvBill.Tag !=null)
+            ShowBill((lsvBill.Tag as Table).ID);
+        }
+
+        void f_DeleteFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+            LoadTable();
+        }
+
+        void f_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
+        }
         private void lsvBill_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -188,6 +212,11 @@ namespace QuanLyFastFood
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
+            if(table == null)
+            {
+                MessageBox.Show("Hãy chọn bàn");
+                return;
+            }
             int idBill = BillDAO.Instace.GetUncheckBillIDByTableID(table.ID);
             int foodId = (cbFood.SelectedItem as Food).ID;
             int count = (int)nmFoodCount.Value;

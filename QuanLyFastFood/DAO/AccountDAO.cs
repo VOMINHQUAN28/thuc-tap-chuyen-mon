@@ -31,7 +31,10 @@ namespace QuanLyFastFood.DAO
 
             return result > 0;
         }
-
+        public DataTable GetListAccount()
+        {
+            return DataProvider.Instance.ExcuteQuery("SELECT UserName, DisplayName, Type FROM Account");
+        }
         public Account GetAccountByUserName(string userName)
         {
             DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM Account WHERE userName = '" + userName + "'");

@@ -373,3 +373,24 @@ GO
 		GO
 
 		
+		CREATE TRIGGER UTG_DeleteBillInfo ON BillInfo FOR DELETE
+		AS
+		BEGIN
+		DECLARE @idBillInfo INT
+		DECLARE @idBill INT
+
+		SELECT @idBillInfo = id, @idBill = Deleted.idBill FROM DELETED
+
+		DECLARE @idTable INT
+		SELECT idTable = @idTable FROM Bill WHERE id = @idBill
+
+		DECLARE @count INT = 0
+		
+		SELECT @count = COUNT (*) FROM BillInfo AS bi, Bill AS b WHERE b.id= bi.idBill AND b.id = @idBill AND status = 0
+
+		IF(@count = 0)
+		UPDATE TableFood SET status = N'Trống' WHERE id = @idTable
+		END
+		GO
+
+		

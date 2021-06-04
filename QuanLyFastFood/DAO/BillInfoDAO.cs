@@ -18,11 +18,16 @@ namespace QuanLyFastFood.DAO
            private set { BillInfoDAO.instance = value; }
         }
         private BillInfoDAO(){ }
+
+        public void DeleteBillInfoByFood(int id)
+        {
+            DataProvider.Instance.ExcuteQuery("DELETE BillInfo WHERE idFood = " + id);
+        }
         public List<BillInfo>GetListBillInfo(int id)
         {
             List<BillInfo> listBillInfo = new List<BillInfo>();
 
-            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM BillInfo WHERE idBill = 5" + id);
+            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM BillInfo WHERE idBill = " + id);
 
             foreach(DataRow item in data.Rows)
             {

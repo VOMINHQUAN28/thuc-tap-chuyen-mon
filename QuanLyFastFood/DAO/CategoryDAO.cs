@@ -37,5 +37,20 @@ namespace QuanLyFastFood.DAO
 
             return list;
         }
+        public Category GetCategoryById(int id)
+        {
+            Category category = null;
+            string query = "SELECT * FROM FoodCategory WHERE id = " +id;
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                 category = new Category(item);
+                return category;
+            }
+            return category;
+
+        }
     }
 }
