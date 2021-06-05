@@ -18,6 +18,8 @@ namespace QuanLyFastFood
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
+
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace QuanLyFastFood
         {
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
-            txbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
+            nmAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
         }
         void LoadAccount()
         {
@@ -95,8 +97,67 @@ namespace QuanLyFastFood
         {
             foodList.DataSource = FoodDAO.Instace.GetListFood();
         }
-        
-       
+
+        void AddAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+
+            }
+            else
+            {
+                MessageBox.Show("Thêm tài khoản thất bại");
+            }
+            LoadAccount();
+        }
+        void EditAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.EditAccount(userName,displayName,type))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công");
+
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại");
+            }
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Vui lòng đừng xóa chính bạn chứ");
+                return;
+            }
+            if (AccountDAO.Instance.DeletetAccount(userName))
+            {
+                MessageBox.Show("Xóa tài khoản thành công");
+
+            }
+            else
+            {
+                MessageBox.Show("Xóa tài khoản thất bại");
+            }
+            LoadAccount();
+           
+        }
+        void ResetPass(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show(" Đặt lại mật khẩu thành công");
+
+            }
+            else
+            {
+                MessageBox.Show("Đặt lại mật khẩu thất bại");
+            }
+
+        }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -279,6 +340,37 @@ namespace QuanLyFastFood
         private void btnShowAccount_Click(object sender, EventArgs e)
         {
             LoadAccount();
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            AddAccount(userName, displayName, type);
+
+        }
+
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            DeleteAccount(userName);
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nmAccountType.Value;
+
+            EditAccount(userName, displayName, type);
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            ResetPass(userName);
         }
     }
 }

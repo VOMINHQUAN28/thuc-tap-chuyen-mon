@@ -20,6 +20,7 @@ namespace QuanLyFastFood.DAO
 
         public bool Login(string userName, string passWord)
         {
+            
             string query = "USP_Login @userName , @passWord";
 
             DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] {userName, passWord });
@@ -45,6 +46,41 @@ namespace QuanLyFastFood.DAO
 
             return null;
             
+        }
+        public bool InsertAccount(string name, string displayName, int type)
+        {
+            string query = string.Format("INSERT Account (UserName, DisplayName, Type )VALUES ( N'{0}', N'{1}', {2})", name, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+
+        }
+
+        public bool EditAccount(string name, string displayName, int type)
+        {
+            string query = string.Format("UPDATE Account SET DisplayName = N'{1}', Type = {2} WHERE userName = N'{0}'", name, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+
+        }
+        public bool DeletetAccount(string name)
+        {
+            
+            string query = string.Format("DELETE Account WHERE userName = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+
+        }
+        public bool ResetPassword(string name)
+        {
+            string query = string.Format("UPDATE Account SET password = N'0' WHERE UserName = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+
+
         }
     }
 }

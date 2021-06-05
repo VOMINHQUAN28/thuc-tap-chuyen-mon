@@ -211,7 +211,7 @@ Go
 		END 
 		GO
 		
-		ALTER TRIGGER UTG_UpdateBillInfo ON BillInfo FOR INSERT,UPDATE
+		CREATE TRIGGER UTG_UpdateBillInfo ON BillInfo FOR INSERT,UPDATE
 		AS
 		BEGIN
 
@@ -263,7 +263,7 @@ GO
 
 		GO
 
-		ALTER PROC USP_SwitchTable
+		CREATE PROC USP_SwitchTable
 		@idTable1 Int, @idTable2 INT
 		
 		AS
