@@ -1,5 +1,5 @@
- Phần 1: 
-•       Họ và tên : Võ Minh Quân  
+ Phần 1:       
+• Họ và tên : Võ Minh Quân  
 •	MSSV: 5951071083  
 •	Lớp: Công nghệ thông tin-K59  
 •	Đề tài: QUẢN LÍ cửa hàng FastFood – Window Form C#  
@@ -29,7 +29,7 @@ Phần 3: Các chức năng đã hoàn thành:
 Phần 4: Các chức năng chưa hoàn thành:  
 •	Tìm kiếm thông tin Khách hàng theo SĐT.  
 
-4.1	Hướng dẫn sử dụng:  
+Phần 5:	Hướng dẫn sử dụng:  
 •	Mở file .exe và làm theo hướng dẫn README.txt.  
 •	Run chương trình.  
 •	Đăng nhập với tài khoản "K9" và mật khẩu "1" (quyền:Nhân viên).  
