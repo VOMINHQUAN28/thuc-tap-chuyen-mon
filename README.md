@@ -4,10 +4,10 @@
 •	Đề tài: QUẢN LÍ cửa hàng FastFood – Window Form C#  
 •	Giảng viên: Thầy Nguyễn Lê Minh.   
 
-Phần 1: Công nghệ sử dụng:
-•	Visual Studio 2019.
-•	Window Form C#.
-•	Micosoft SQL Server.  
+Phần 1: Công nghệ sử dụng:  
+•	Visual Studio 2019.  
+•	Window Form C#.  
+•	Micosoft SQL Server.    
 
 Phần 2: Các chức năng đã hoàn thành:
 •	Xây dựng Cơ sở dữ liệu quản lí cửa hàng FastFood.
