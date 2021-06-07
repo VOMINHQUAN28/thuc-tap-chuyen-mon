@@ -1,4 +1,4 @@
- Phần 1:       
+ Phần 1: Giới thiệu:        
 • Họ và tên : Võ Minh Quân  
 •	MSSV: 5951071083  
 •	Lớp: Công nghệ thông tin-K59  
