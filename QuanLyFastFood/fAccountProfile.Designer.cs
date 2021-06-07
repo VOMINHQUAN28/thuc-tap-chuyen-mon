@@ -189,23 +189,25 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnUpdate.Location = new System.Drawing.Point(329, 410);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 39);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExti
             // 
+            this.btnExti.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnExti.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExti.Location = new System.Drawing.Point(422, 410);
             this.btnExti.Name = "btnExti";
             this.btnExti.Size = new System.Drawing.Size(87, 39);
             this.btnExti.TabIndex = 7;
             this.btnExti.Text = "Thoát";
-            this.btnExti.UseVisualStyleBackColor = true;
+            this.btnExti.UseVisualStyleBackColor = false;
             this.btnExti.Click += new System.EventHandler(this.btnExti_Click);
             // 
             // fAccountProfile
@@ -213,6 +215,7 @@
             this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCoral;
             this.CancelButton = this.btnExti;
             this.ClientSize = new System.Drawing.Size(800, 461);
             this.Controls.Add(this.btnExti);

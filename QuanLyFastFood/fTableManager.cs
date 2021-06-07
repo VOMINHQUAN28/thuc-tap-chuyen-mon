@@ -74,10 +74,10 @@ namespace QuanLyFastFood
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.Aqua;
+                        btn.BackColor = Color.YellowGreen;
                         break;
                     default:
-                        btn.BackColor = Color.LightPink;
+                        btn.BackColor = Color.BlueViolet;
                         break;
                 }
                 flpTable.Controls.Add(btn);
@@ -280,6 +280,11 @@ namespace QuanLyFastFood
         private void thêmMónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnAddFood_Click(this, new EventArgs());
+        }
+
+        private void cbFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

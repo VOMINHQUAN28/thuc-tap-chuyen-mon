@@ -29,16 +29,54 @@ namespace QuanLyFastFood.DAO
 
         public List<Table> LoadTableList()
         {
-           
-                List<Table> tableList = new List<Table>();
-                DataTable data = DataProvider.Instance.ExcuteQuery("EXEC USP_GetTableList");
-                foreach (DataRow item in data.Rows)
-                {
-                    Table table = new Table(item);
-                    tableList.Add(table);
-                }
-                return tableList;
+
+            List<Table> tableList = new List<Table>();
+            DataTable data = DataProvider.Instance.ExcuteQuery("EXEC USP_GetTableList");
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                tableList.Add(table);
             }
+            return tableList;
+        }
+        public List<Table>GetTableList()
+        {
+            List<Table> tableList = new List<Table>();
+            DataTable data = DataProvider.Instance.ExcuteQuery("select * from TableFood");
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+        public bool InsertTable(string name)
+        {
+            string query = string.Format("INSERT TableFood ( name , status ) VALUES  ( N'{0}' , N'Trống')", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+        public bool UpdateTable(string name, int id)
+        {
+            string query = string.Format("UPDATE TableFood SET name = N'{0}' WHERE id = {1}", name, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+
+        }
+        
+        public bool DeleteTable(int id)
+        {
+
+            string query = string.Format("Delete TableFood WHERE id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
         }
     }
+
+    
+
+}
 

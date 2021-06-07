@@ -341,7 +341,7 @@ GO
 
 		
 
-		alter PROC USP_GetListBillByDate
+		CREATE PROC USP_GetListBillByDate
 		@checkIN date, @checkout date
 		AS
 		BEGIN
@@ -393,4 +393,34 @@ GO
 		END
 		GO
 
+		CREATE PROC USP_GetListBillByDateAndPage
+		@checkIN date, @checkout date, @page INT
+		AS
+		BEGIN
+		DECLARE @pageRows INT = 10
+		DECLARE @selectRows INT = @pageRows 
+		DECLARE @exceptRows INT = (@page-1) * @pageRows
+
+		;WITH BillShow AS (SELECT b.id, t.name AS [Tên bàn], b.totalPrice AS [Tổng tiền], DateCheckIn AS [Ngày vào], DateCheckOut AS [Ngày ra], discount AS [Giảm giá]
+		FROM Bill AS b, TableFood AS t
+		WHERE DateCheckIn >= @checkIN AND DateCheckOut <= @checkout AND b.status = 1 AND t.id = b.idTable)
+
+		SELECT TOP (@selectRows) * FROM BillShow WHERE id NOT IN (SELECT TOP (@exceptRows) id FROM BillShow)
 		
+
+		END 
+		GO
+
+
+		CREATE PROC USP_GetNumBillByDate
+		@checkIN date, @checkout date
+		AS
+		BEGIN
+		SELECT  COUNT(*)
+		FROM Bill AS b, TableFood AS t
+		WHERE DateCheckIn >= @checkIN AND DateCheckOut <= @checkout AND b.status = 1 AND t.id = b.idTable 
+		END 
+		GO
+
+
+		SELECT *fROM FoodCategory

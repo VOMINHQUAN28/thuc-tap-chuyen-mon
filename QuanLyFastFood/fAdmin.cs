@@ -15,9 +15,12 @@ namespace QuanLyFastFood
 {
     public partial class fAdmin : Form
     {
+        BindingSource categorylist = new BindingSource();
         BindingSource foodList = new BindingSource();
 
         BindingSource accountList = new BindingSource();
+
+        BindingSource tableList = new BindingSource();
 
         public Account loginAccount;
         public fAdmin()
@@ -32,17 +35,26 @@ namespace QuanLyFastFood
         }
         void Load()
         {
+            dtgvCategory.DataSource = categorylist;
             dtgvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
+            dtgvTable.DataSource = tableList;
            
             LoadListByDate(dtpkFromDate.Value, dtpkToDate.Value);
             LoadDateTimePickerBill();
             LoadListFood();
             LoadAccount();
+            LoadCategory();
+
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBindding();
              AddAccountBinding();
-              
+            AddCategoryBinding();
+            AddTableBinding();
+            LoadStatusIntoCombobox(cbTableStatus);
+            LoadTable();
+          
+                
 
         }
         void AddAccountBinding()
@@ -51,6 +63,28 @@ namespace QuanLyFastFood
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
             nmAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Type", true, DataSourceUpdateMode.Never));
         }
+        void AddTableBinding()
+        {
+            txbTableID.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "ID", true, DataSourceUpdateMode.Never));
+           txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Name", true, DataSourceUpdateMode.Never));
+
+        }
+        void LoadStatusIntoCombobox(ComboBox b)
+        {
+            b.DataSource = TableDAO.Instance.GetTableList();
+            b.DisplayMember = "status";
+        }
+
+        void AddCategoryBinding()
+        {
+            txbCategoryID.DataBindings.Add(new Binding("Text",dtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            txbCategoryName. DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "Name", true, DataSourceUpdateMode.Never));
+        }
+        void LoadCategory()
+        {
+            categorylist.DataSource = CategoryDAO.Instace.GetListCategory();
+        }
+       
         void LoadAccount()
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
@@ -65,6 +99,10 @@ namespace QuanLyFastFood
         {
             cb.DataSource = CategoryDAO.Instace.GetListCategory();
             cb.DisplayMember = "Name";
+        }
+         void LoadTable()
+        {
+            tableList.DataSource = TableDAO.Instance.GetTableList();
         }
         void LoadDateTimePickerBill()
         {
@@ -296,7 +334,7 @@ namespace QuanLyFastFood
             }
             else
             {
-                MessageBox.Show("Có lỗi khi sửa thức ăn");
+                MessageBox.Show("Có lỗi khi sửa món");
             }
         }
 
@@ -371,6 +409,180 @@ namespace QuanLyFastFood
         {
             string userName = txbUserName.Text;
             ResetPass(userName);
+        }
+
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+            txbPageBill.Text = "1";
+        }
+
+        private void btnLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instace.GetNumBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            int lastPage = sumRecord / 10;
+            if (sumRecord % 10 != 0)
+                lastPage++;
+            txbPageBill.Text = lastPage.ToString();
+        }
+
+        private void txbPageBill_TextChanged(object sender, EventArgs e)
+        {
+            dtgvBill.DataSource = BillDAO.Instace.GetBillListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value, Convert.ToInt32(txbPageBill.Text));
+        }
+
+        private void btnPrevioursBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPageBill.Text);
+            if (page > 1)
+                page--;
+            txbPageBill.Text = page.ToString();
+        }
+
+        private void btnNextBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPageBill.Text);
+            int sumRecord = BillDAO.Instace.GetNumBillListByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
+            if (page < sumRecord)
+                page++;
+            txbPageBill.Text = page.ToString();
+        }
+
+        private void fAdmin_Load_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fAdmin_Load_4(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddTable_Click(object sender, EventArgs e)
+        {
+            string name = txbTableName.Text;
+
+
+            if (TableDAO.Instance.InsertTable(name))
+            {
+                MessageBox.Show("Thêm bàn ăn thành công");
+                LoadTable();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm bàn ăn");
+            }
+        }
+
+        private void btnDeleteTable_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbTableID.Text);
+
+            if (TableDAO.Instance.DeleteTable(id))
+            {
+                MessageBox.Show("Xóa bàn ăn thành công");
+                LoadTable();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa bàn ăn");
+            }
+        }
+
+        private void btnEditTable_Click(object sender, EventArgs e)
+        {
+            string name = txbTableName.Text;
+
+            int id = Convert.ToInt32(txbTableID.Text);
+
+            if (TableDAO.Instance.UpdateTable(name, id))
+            {
+                MessageBox.Show("Sửa bàn ăn thành công");
+                LoadTable();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa bàn ăn");
+            }
+        }
+
+        private void fAdmin_Load_5(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fAdmin_Load_6(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+
+
+            if (CategoryDAO.Instace.InsertCategory(name))
+            {
+                MessageBox.Show("Thêm danh muc thành công");
+                LoadCategory();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm danh mục");
+            }
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instace.DeleteCategory(id))
+            {
+                MessageBox.Show("Xóa danh mục thành công");
+                LoadCategory();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa danh mục món ăn");
+            }
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbCategoryName.Text;
+
+            int id = Convert.ToInt32(txbCategoryID.Text);
+
+            if (CategoryDAO.Instace.UpdateCategory(name, id))
+            {
+                MessageBox.Show("Sửa danh mục thành công");
+                LoadCategory();
+
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa danh mục món ăn");
+            }
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        private void btnShowTable_Click(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
+        private void fAdmin_Load_7(object sender, EventArgs e)
+        {
+
         }
     }
 }
