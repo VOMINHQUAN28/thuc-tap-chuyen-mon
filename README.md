@@ -27,7 +27,7 @@ Phần 3: Các chức năng đã hoàn thành:
 •	Phân quyền Tài khoản(Admin và Nhân viên).  
 
 Phần 4: Các chức năng chưa hoàn thành:  
-•	Tìm kiếm thông tin Khách hàng theo SĐT.  
+•	Chưa report được dữ liệu.    
 
 Phần 5:	Hướng dẫn sử dụng:  
 •	Mở file .exe và làm theo hướng dẫn README.txt.  
