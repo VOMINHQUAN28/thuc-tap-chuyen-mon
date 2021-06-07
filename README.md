@@ -32,7 +32,7 @@ Phần 4: Các chức năng chưa hoàn thành:
 Phần 5:	Hướng dẫn sử dụng:  
 •	Mở file .exe và làm theo hướng dẫn README.txt.  
 •	Run chương trình.  
-•	Đăng nhập với tài khoản "K9" và mật khẩu "1" (quyền:Nhân viên).  
+•	Đăng nhập với tài khoản "K9" và mật khẩu "1".    
 •	Bắt đầu sử dụng và thao tác nhập liệu với các tính năng của chương trình:TÀI KHOẢN,BÁN HÀNG,THỨC ĂN,HÓA ĐƠN.  
 •	Sau khi sử dụng xong,click ĐĂNG XUẤT để quay lại màn hình ĐĂNG NHẬP hoặc click THOÁT để đóng ứng dụng.  
 •	Xin cám ơn!  
