@@ -1,10 +1,8 @@
 Họ và tên: Võ Minh Quân
 MSSV: 5951071083
-
 Lớp: Công nghệ thông tin-K59
 Đề tài: QUẢN LÍ cửa hàng FastFood – Window Form C#
 Giảng viên: Thầy Nguyễn Lê Minh. 
-
 Phần 1: Công nghệ sử dụng:
 • Visual Studio 2019.
 • Window Form C#.
