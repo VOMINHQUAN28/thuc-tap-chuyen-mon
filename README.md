@@ -3,10 +3,12 @@ MSSV: 5951071083
 Lớp: Công nghệ thông tin-K59
 Đề tài: QUẢN LÍ cửa hàng FastFood – Window Form C#
 Giảng viên: Thầy Nguyễn Lê Minh. 
+
 Phần 1: Công nghệ sử dụng:
 • Visual Studio 2019.
 • Window Form C#.
 • Micosoft SQL Server.  
+
 Phần 2: Các chức năng đã hoàn thành:
 Xây dựng Cơ sở dữ liệu quản lí cửa hàng FastFood.
 Mô hình 3 lớp Layers.
@@ -22,6 +24,7 @@ Thêm, sửa,xóa Tài khoản và Thay đổi thông tin cá nhân.
 Chức năng Chuyển Bàn.
 Chức năng Giảm giá trong một hóa đơn.
 Phân quyền Tài khoản(Admin và Nhân viên).
+
 Phần 3: Các chức năng chưa hoàn thành:
 Tìm kiếm thông tin Khách hàng theo SĐT.
 Hướng dẫn sử dụng:
