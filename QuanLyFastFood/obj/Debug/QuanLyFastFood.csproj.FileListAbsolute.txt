@@ -105,3 +105,5 @@ E:\thuc-tap-chuyen-mon\QuanLyFastFood\bin\Debug\pt\Microsoft.ReportViewer.WinFor
 E:\thuc-tap-chuyen-mon\QuanLyFastFood\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\thuc-tap-chuyen-mon\QuanLyFastFood\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\thuc-tap-chuyen-mon\QuanLyFastFood\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+E:\thuc-tap-chuyen-mon\QuanLyFastFood\obj\Debug\RdlCompile.cache
+E:\thuc-tap-chuyen-mon\QuanLyFastFood\obj\Debug\RdlCompile.compiled

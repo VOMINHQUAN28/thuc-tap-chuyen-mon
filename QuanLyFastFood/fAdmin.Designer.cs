@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.QuanlyFastFoodDataSet = new QuanLyFastFood.QuanlyFastFoodDataSet();
             this.tcBill = new System.Windows.Forms.TabPage();
             this.txbPageBill = new System.Windows.Forms.TextBox();
             this.btnNextBillPage = new System.Windows.Forms.Button();
@@ -119,6 +123,9 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.BillTableAdapter = new QuanLyFastFood.QuanlyFastFoodDataSetTableAdapters.BillTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanlyFastFoodDataSet)).BeginInit();
             this.tcBill.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -161,6 +168,16 @@
             this.panel27.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // BillBindingSource
+            // 
+            this.BillBindingSource.DataMember = "Bill";
+            this.BillBindingSource.DataSource = this.QuanlyFastFoodDataSet;
+            // 
+            // QuanlyFastFoodDataSet
+            // 
+            this.QuanlyFastFoodDataSet.DataSetName = "QuanlyFastFoodDataSet";
+            this.QuanlyFastFoodDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tcBill
             // 
@@ -1074,14 +1091,25 @@
             this.tabPage1.TabIndex = 5;
             this.tabPage1.Text = "Report";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // reportViewer1
             // 
+            reportDataSource1.Name = "BillReport";
+            reportDataSource1.Value = this.BillBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyFastFood.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.Size = new System.Drawing.Size(709, 440);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            // 
+            // BillTableAdapter
+            // 
+            this.BillTableAdapter.ClearBeforeFill = true;
             // 
             // fAdmin
             // 
@@ -1093,7 +1121,8 @@
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-           
+            ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuanlyFastFoodDataSet)).EndInit();
             this.tcBill.ResumeLayout(false);
             this.tcBill.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1246,5 +1275,8 @@
         private System.Windows.Forms.TextBox txbPageBill;
         private System.Windows.Forms.TabPage tabPage1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource BillBindingSource;
+        private QuanlyFastFoodDataSet QuanlyFastFoodDataSet;
+        private QuanlyFastFoodDataSetTableAdapters.BillTableAdapter BillTableAdapter;
     }
 }

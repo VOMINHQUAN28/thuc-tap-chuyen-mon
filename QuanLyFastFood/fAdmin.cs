@@ -1,4 +1,5 @@
-﻿using QuanLyFastFood.DAO;
+﻿using Microsoft.Reporting.WinForms;
+using QuanLyFastFood.DAO;
 using QuanLyFastFood.DTO;
 using System;
 using System.Collections.Generic;
@@ -583,6 +584,27 @@ namespace QuanLyFastFood
         private void fAdmin_Load_7(object sender, EventArgs e)
         {
 
+        }
+
+        private void fAdmin_Load_8(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'QuanlyFastFoodDataSet.Bill' table. You can move, or remove it, as needed.
+            this.BillTableAdapter.Fill(this.QuanlyFastFoodDataSet.Bill);
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM Bill");
+            ReportDataSource rds = new ReportDataSource("BillReport", data);
+            this.reportViewer1.LocalReport.DataSources.Clear();
+            this.reportViewer1.LocalReport.DataSources.Add(rds);
+            this.reportViewer1.RefreshReport();
         }
     }
 }
