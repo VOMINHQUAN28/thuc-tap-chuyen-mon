@@ -1121,6 +1121,7 @@
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuanlyFastFoodDataSet)).EndInit();
             this.tcBill.ResumeLayout(false);

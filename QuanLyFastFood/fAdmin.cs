@@ -606,5 +606,10 @@ namespace QuanLyFastFood
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.RefreshReport();
         }
+
+        private void fAdmin_Load_9(object sender, EventArgs e)
+        {
+
+        }
     }
 }
