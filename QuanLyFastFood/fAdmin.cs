@@ -611,5 +611,10 @@ namespace QuanLyFastFood
         {
 
         }
+
+        private void fAdmin_Load_10(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -71,5 +71,17 @@ namespace QuanLyFastFood
 
            
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbShowPass.Checked)
+            {
+                txbPassWord.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbPassWord.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
