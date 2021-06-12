@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QuanlyFastFoodDataSet = new QuanLyFastFood.QuanlyFastFoodDataSet();
             this.tcBill = new System.Windows.Forms.TabPage();
@@ -58,7 +58,6 @@
             this.txbTableID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.btnShowTable = new System.Windows.Forms.Button();
             this.btnEditTable = new System.Windows.Forms.Button();
             this.btnDeleteTable = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
@@ -73,7 +72,6 @@
             this.txbCategoryID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.btnShowCategory = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
@@ -117,7 +115,6 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.btnShowAccount = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
@@ -181,7 +178,7 @@
             // 
             // tcBill
             // 
-            this.tcBill.BackColor = System.Drawing.Color.LightCoral;
+            this.tcBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.tcBill.Controls.Add(this.txbPageBill);
             this.tcBill.Controls.Add(this.btnNextBillPage);
             this.tcBill.Controls.Add(this.btnPrevioursBillPage);
@@ -254,7 +251,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightCoral;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.panel2.Controls.Add(this.btnViewBill);
             this.panel2.Controls.Add(this.dtpkToDate);
             this.panel2.Controls.Add(this.dtpkFromDate);
@@ -300,6 +297,7 @@
             // dtgvBill
             // 
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Location = new System.Drawing.Point(-3, -28);
             this.dtgvBill.Name = "dtgvBill";
@@ -310,7 +308,7 @@
             // 
             // tpTable
             // 
-            this.tpTable.BackColor = System.Drawing.Color.LightCoral;
+            this.tpTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.tpTable.Controls.Add(this.panel15);
             this.tpTable.Controls.Add(this.panel16);
             this.tpTable.Controls.Add(this.panel12);
@@ -332,6 +330,7 @@
             // 
             // dtgvTable
             // 
+            this.dtgvTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(223)))), ((int)(((byte)(236)))));
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTable.Location = new System.Drawing.Point(0, 6);
             this.dtgvTable.Name = "dtgvTable";
@@ -432,25 +431,13 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.btnShowTable);
             this.panel12.Controls.Add(this.btnEditTable);
             this.panel12.Controls.Add(this.btnDeleteTable);
             this.panel12.Controls.Add(this.btnAddTable);
             this.panel12.Location = new System.Drawing.Point(0, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(348, 50);
+            this.panel12.Size = new System.Drawing.Size(252, 50);
             this.panel12.TabIndex = 2;
-            // 
-            // btnShowTable
-            // 
-            this.btnShowTable.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnShowTable.Location = new System.Drawing.Point(268, 3);
-            this.btnShowTable.Name = "btnShowTable";
-            this.btnShowTable.Size = new System.Drawing.Size(75, 47);
-            this.btnShowTable.TabIndex = 4;
-            this.btnShowTable.Text = "Xem";
-            this.btnShowTable.UseVisualStyleBackColor = false;
-            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnEditTable
             // 
@@ -487,7 +474,7 @@
             // 
             // tbFoodCategory
             // 
-            this.tbFoodCategory.BackColor = System.Drawing.Color.LightCoral;
+            this.tbFoodCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.tbFoodCategory.Controls.Add(this.panel13);
             this.tbFoodCategory.Controls.Add(this.panel14);
             this.tbFoodCategory.Controls.Add(this.panel11);
@@ -508,6 +495,7 @@
             // 
             // dtgvCategory
             // 
+            this.dtgvCategory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(223)))), ((int)(((byte)(236)))));
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCategory.Location = new System.Drawing.Point(0, 6);
             this.dtgvCategory.Name = "dtgvCategory";
@@ -580,7 +568,6 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.btnShowCategory);
             this.panel11.Controls.Add(this.btnEditCategory);
             this.panel11.Controls.Add(this.btnDeleteCategory);
             this.panel11.Controls.Add(this.btnAddCategory);
@@ -588,17 +575,7 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(348, 50);
             this.panel11.TabIndex = 1;
-            // 
-            // btnShowCategory
-            // 
-            this.btnShowCategory.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnShowCategory.Location = new System.Drawing.Point(268, 3);
-            this.btnShowCategory.Name = "btnShowCategory";
-            this.btnShowCategory.Size = new System.Drawing.Size(75, 47);
-            this.btnShowCategory.TabIndex = 4;
-            this.btnShowCategory.Text = "Xem";
-            this.btnShowCategory.UseVisualStyleBackColor = false;
-            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // btnEditCategory
             // 
@@ -635,7 +612,7 @@
             // 
             // tpFood
             // 
-            this.tpFood.BackColor = System.Drawing.Color.LightCoral;
+            this.tpFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.tpFood.Controls.Add(this.panel6);
             this.tpFood.Controls.Add(this.panel5);
             this.tpFood.Controls.Add(this.panel3);
@@ -742,6 +719,7 @@
             // 
             // dtgvFood
             // 
+            this.dtgvFood.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(223)))), ((int)(((byte)(236)))));
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvFood.Location = new System.Drawing.Point(0, 6);
             this.dtgvFood.Name = "dtgvFood";
@@ -892,7 +870,7 @@
             // 
             // tpAccount
             // 
-            this.tpAccount.BackColor = System.Drawing.Color.LightCoral;
+            this.tpAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.tpAccount.Controls.Add(this.panel23);
             this.tpAccount.Controls.Add(this.panel22);
             this.tpAccount.Controls.Add(this.panel27);
@@ -917,12 +895,13 @@
             // 
             // btnResetPassword
             // 
+            this.btnResetPassword.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnResetPassword.Location = new System.Drawing.Point(240, 197);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(86, 47);
             this.btnResetPassword.TabIndex = 5;
             this.btnResetPassword.Text = "Đặt lại mật khẩu";
-            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.UseVisualStyleBackColor = false;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // panel25
@@ -1018,8 +997,9 @@
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(223)))), ((int)(((byte)(236)))));
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAccount.Location = new System.Drawing.Point(0, 6);
+            this.dtgvAccount.Location = new System.Drawing.Point(0, 7);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowHeadersWidth = 51;
             this.dtgvAccount.RowTemplate.Height = 24;
@@ -1028,25 +1008,13 @@
             // 
             // panel27
             // 
-            this.panel27.Controls.Add(this.btnShowAccount);
             this.panel27.Controls.Add(this.btnEditAccount);
             this.panel27.Controls.Add(this.btnDeleteAccount);
             this.panel27.Controls.Add(this.btnAddAccount);
             this.panel27.Location = new System.Drawing.Point(3, 1);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(348, 50);
+            this.panel27.Size = new System.Drawing.Size(250, 50);
             this.panel27.TabIndex = 7;
-            // 
-            // btnShowAccount
-            // 
-            this.btnShowAccount.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnShowAccount.Location = new System.Drawing.Point(268, 3);
-            this.btnShowAccount.Name = "btnShowAccount";
-            this.btnShowAccount.Size = new System.Drawing.Size(75, 47);
-            this.btnShowAccount.TabIndex = 4;
-            this.btnShowAccount.Text = "Xem";
-            this.btnShowAccount.UseVisualStyleBackColor = false;
-            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 
@@ -1095,9 +1063,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "BillReport";
-            reportDataSource1.Value = this.BillBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource4.Name = "BillReport";
+            reportDataSource4.Value = this.BillBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyFastFood.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -1115,13 +1083,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(721, 478);
             this.Controls.Add(this.tcAdmin);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-           
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuanlyFastFoodDataSet)).EndInit();
             this.tcBill.ResumeLayout(false);
@@ -1204,7 +1170,6 @@
         private System.Windows.Forms.TextBox txbCategoryID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button btnShowCategory;
         private System.Windows.Forms.Button btnEditCategory;
         private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.Button btnAddCategory;
@@ -1244,7 +1209,6 @@
         private System.Windows.Forms.TextBox txbTableID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button btnShowTable;
         private System.Windows.Forms.Button btnEditTable;
         private System.Windows.Forms.Button btnDeleteTable;
         private System.Windows.Forms.Button btnAddTable;
@@ -1264,7 +1228,6 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.DataGridView dtgvAccount;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Button btnShowAccount;
         private System.Windows.Forms.Button btnEditAccount;
         private System.Windows.Forms.Button btnDeleteAccount;
         private System.Windows.Forms.Button btnAddAccount;

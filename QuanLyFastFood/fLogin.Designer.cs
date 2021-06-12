@@ -39,15 +39,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.chbShowPass);
@@ -90,7 +93,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(379, 161);
+            this.btnExit.Location = new System.Drawing.Point(244, 182);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(92, 31);
             this.btnExit.TabIndex = 3;
@@ -101,7 +104,7 @@
             // chbShowPass
             // 
             this.chbShowPass.AutoSize = true;
-            this.chbShowPass.Location = new System.Drawing.Point(328, 134);
+            this.chbShowPass.Location = new System.Drawing.Point(171, 134);
             this.chbShowPass.Name = "chbShowPass";
             this.chbShowPass.Size = new System.Drawing.Size(140, 21);
             this.chbShowPass.TabIndex = 1;
@@ -112,7 +115,7 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnLogin.Location = new System.Drawing.Point(281, 161);
+            this.btnLogin.Location = new System.Drawing.Point(85, 182);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(92, 31);
             this.btnLogin.TabIndex = 2;
@@ -146,13 +149,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập:";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(510, 239);
+            this.panel4.TabIndex = 1;
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(119, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 186);
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.Size = new System.Drawing.Size(510, 239);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // Form1
@@ -160,10 +174,10 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(492, 432);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(510, 493);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -176,6 +190,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -193,6 +208,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox chbShowPass;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -34,7 +34,8 @@ namespace QuanLyFastFood
             List<Food> listFood = FoodDAO.Instace.SearchFoodByName( name);
             return listFood;
         }
-        void Load()
+
+       void Load()
         {
             dtgvCategory.DataSource = categorylist;
             dtgvFood.DataSource = foodList;
@@ -68,7 +69,7 @@ namespace QuanLyFastFood
         {
             txbTableID.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "ID", true, DataSourceUpdateMode.Never));
            txbTableName.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Name", true, DataSourceUpdateMode.Never));
-
+            cbTableStatus.DataBindings.Add(new Binding("Text", dtgvTable.DataSource, "Status", true, DataSourceUpdateMode.Never));
         }
         void LoadStatusIntoCombobox(ComboBox b)
         {
@@ -613,6 +614,11 @@ namespace QuanLyFastFood
         }
 
         private void fAdmin_Load_10(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -101,7 +101,7 @@ namespace QuanLyFastFood
                 lsvBill.Items.Add(lsvItem);
             }
             CultureInfo culture = new CultureInfo("vi-VN");
-            //Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentCulture = culture;
             txbTotalPrice.Text = totalPrice.ToString("c",culture);
 
            

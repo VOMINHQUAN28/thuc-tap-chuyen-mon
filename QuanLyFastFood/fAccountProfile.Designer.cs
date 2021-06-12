@@ -215,7 +215,7 @@
             this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCoral;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(236)))), ((int)(((byte)(223)))));
             this.CancelButton = this.btnExti;
             this.ClientSize = new System.Drawing.Size(800, 461);
             this.Controls.Add(this.btnExti);
