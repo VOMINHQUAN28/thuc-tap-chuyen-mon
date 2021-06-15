@@ -622,5 +622,15 @@ namespace QuanLyFastFood
         {
 
         }
+
+        private void fAdmin_Load_11(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

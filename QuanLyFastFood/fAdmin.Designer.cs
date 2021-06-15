@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QuanlyFastFoodDataSet = new QuanLyFastFood.QuanlyFastFoodDataSet();
             this.tcBill = new System.Windows.Forms.TabPage();
@@ -43,7 +43,6 @@
             this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.tpTable = new System.Windows.Forms.TabPage();
             this.panel15 = new System.Windows.Forms.Panel();
             this.dtgvTable = new System.Windows.Forms.DataGridView();
@@ -121,12 +120,12 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.BillTableAdapter = new QuanLyFastFood.QuanlyFastFoodDataSetTableAdapters.BillTableAdapter();
+            this.dtgvBill = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuanlyFastFoodDataSet)).BeginInit();
             this.tcBill.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tpTable.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTable)).BeginInit();
@@ -164,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.panel27.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.SuspendLayout();
             // 
             // BillBindingSource
@@ -288,23 +288,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dtgvBill);
-            this.panel1.Location = new System.Drawing.Point(6, 65);
+            this.panel1.Location = new System.Drawing.Point(6, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(687, 307);
+            this.panel1.Size = new System.Drawing.Size(693, 335);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // dtgvBill
-            // 
-            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
-            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Location = new System.Drawing.Point(-3, -28);
-            this.dtgvBill.Name = "dtgvBill";
-            this.dtgvBill.RowHeadersWidth = 51;
-            this.dtgvBill.RowTemplate.Height = 24;
-            this.dtgvBill.Size = new System.Drawing.Size(680, 369);
-            this.dtgvBill.TabIndex = 0;
             // 
             // tpTable
             // 
@@ -1063,9 +1051,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource4.Name = "BillReport";
-            reportDataSource4.Value = this.BillBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource1.Name = "BillReport";
+            reportDataSource1.Value = this.BillBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyFastFood.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -1078,6 +1066,17 @@
             // BillTableAdapter
             // 
             this.BillTableAdapter.ClearBeforeFill = true;
+            // 
+            // dtgvBill
+            // 
+            this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
+            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBill.Location = new System.Drawing.Point(0, 0);
+            this.dtgvBill.Name = "dtgvBill";
+            this.dtgvBill.RowHeadersWidth = 51;
+            this.dtgvBill.RowTemplate.Height = 24;
+            this.dtgvBill.Size = new System.Drawing.Size(690, 335);
+            this.dtgvBill.TabIndex = 0;
             // 
             // fAdmin
             // 
@@ -1094,7 +1093,6 @@
             this.tcBill.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tpTable.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTable)).EndInit();
@@ -1145,6 +1143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             this.panel27.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1157,7 +1156,6 @@
         private System.Windows.Forms.DateTimePicker dtpkToDate;
         private System.Windows.Forms.DateTimePicker dtpkFromDate;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dtgvBill;
         private System.Windows.Forms.TabPage tpTable;
         private System.Windows.Forms.TabPage tbFoodCategory;
         private System.Windows.Forms.Panel panel13;
@@ -1242,5 +1240,6 @@
         private System.Windows.Forms.BindingSource BillBindingSource;
         private QuanlyFastFoodDataSet QuanlyFastFoodDataSet;
         private QuanlyFastFoodDataSetTableAdapters.BillTableAdapter BillTableAdapter;
+        private System.Windows.Forms.DataGridView dtgvBill;
     }
 }
