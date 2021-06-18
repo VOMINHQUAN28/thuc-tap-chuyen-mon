@@ -31,7 +31,7 @@ Phần 4: Các chức năng chưa hoàn thành:
 •	Chưa thực hiện được chức năng gộp bàn  
 
 Phần 5:	Hướng dẫn sử dụng:  
-•	Mở folder seup và click vào file setup.exe và làm theo hướng dẫn README.txt.  
+•	Mở folder setup và click vào file setup.exe và làm theo hướng dẫn README.txt.  
 •	Run chương trình.  
 •	Đăng nhập với tài khoản "K9" và mật khẩu "1".    
 •	Bắt đầu sử dụng và thao tác nhập liệu với các tính năng của chương trình:TÀI KHOẢN,BÁN HÀNG,THỨC ĂN,HÓA ĐƠN.  
