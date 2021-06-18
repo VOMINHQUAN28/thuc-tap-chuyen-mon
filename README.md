@@ -24,13 +24,14 @@ Phần 3: Các chức năng đã hoàn thành:
 •	Thêm, sửa,xóa Tài khoản và Thay đổi thông tin cá nhân.  
 •	Chức năng Chuyển Bàn.  
 •	Chức năng Giảm giá trong một hóa đơn.  
-•	Phân quyền Tài khoản(Admin và Nhân viên).  
+•	Phân quyền Tài khoản(Admin và Nhân viên).   
+•	Đã đóng gói thành công sản phẩm  
 
 Phần 4: Các chức năng chưa hoàn thành:  
-•	Chưa report được dữ liệu.    
+•	Chưa thực hiện được chức năng gộp bàn  
 
 Phần 5:	Hướng dẫn sử dụng:  
-•	Mở file .exe và làm theo hướng dẫn README.txt.  
+•	Mở folder seup và click vào file setup.exe và làm theo hướng dẫn README.txt.  
 •	Run chương trình.  
 •	Đăng nhập với tài khoản "K9" và mật khẩu "1".    
 •	Bắt đầu sử dụng và thao tác nhập liệu với các tính năng của chương trình:TÀI KHOẢN,BÁN HÀNG,THỨC ĂN,HÓA ĐƠN.  
