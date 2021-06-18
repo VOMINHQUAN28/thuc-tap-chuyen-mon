@@ -449,11 +449,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>1c23e265-ecac-4a9b-9598-c3eb976601da</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="QuanlyFastFoodDataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>69b83084-050f-4b80-ad45-35dca498ad12</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="BillReport">
       <Query>
-        <DataSourceName>QuanlyFastFoodDataSet</DataSourceName>
+        <DataSourceName>QuanlyFastFoodDataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -477,18 +484,18 @@
           <DataField>status</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="discount">
-          <DataField>discount</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="totalPrice">
           <DataField>totalPrice</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="discount">
+          <DataField>discount</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>QuanlyFastFoodDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanlyFastFoodDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>QuanlyFastFoodDataSet1</rd:DataSetName>
+        <rd:SchemaPath>E:\thuc-tap-chuyen-mon\QuanLyFastFood\QuanlyFastFoodDataSet1.xsd</rd:SchemaPath>
         <rd:TableName>Bill</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

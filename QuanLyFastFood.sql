@@ -39,8 +39,8 @@ GO
 create table Bill
 (
 id int identity primary key,
-DateCheckIn date Not Null default getdate(),
-DateCheckOut date,
+DateCheckIn datetime Not Null default getdate(),
+DateCheckOut datetime,
 idTable int Not Null,
 status int Not Null default 0
 
@@ -48,10 +48,12 @@ foreign key(idTable) references dbo.TableFood(id)
 )
 GO
 
+
+
 create table BillInfo
 (
 id int identity primary key,
-idBill int Not Null,
+idBill int Not Null,-- 1
 idFood int Not Null,
 count int Not Null default 0
 
@@ -162,7 +164,7 @@ Go
 		SELECT * FROM FoodCategory
 		SELECT * FROM Food
 
-		CREATE PROC USP_InsertBill
+		alter PROC USP_InsertBill
 		@idTable INT
 		AS
 		BEGIN
@@ -422,5 +424,6 @@ GO
 		END 
 		GO
 
+		alter table Bill add totalPrice int
+		SELECT *fROM Bill
 
-		SELECT *fROM FoodCategory

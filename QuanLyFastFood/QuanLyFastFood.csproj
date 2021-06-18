@@ -122,6 +122,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanlyFastFoodDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanlyFastFoodDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlyFastFoodDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
@@ -176,6 +181,17 @@
     </None>
     <None Include="QuanlyFastFoodDataSet.xss">
       <DependentUpon>QuanlyFastFoodDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlyFastFoodDataSet1.xsc">
+      <DependentUpon>QuanlyFastFoodDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlyFastFoodDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlyFastFoodDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlyFastFoodDataSet1.xss">
+      <DependentUpon>QuanlyFastFoodDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
