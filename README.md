@@ -29,6 +29,8 @@ Phần 3: Các chức năng đã hoàn thành:
 
 Phần 4: Các chức năng chưa hoàn thành:  
 •	Chưa thực hiện được chức năng gộp bàn  
+•	Chưa có chức năng quản lý khách hàng và nhân viên trong cửa hàng   
+
 
 Phần 5:	Hướng dẫn sử dụng:  
 •	Mở folder setup và click vào file setup.exe và làm theo hướng dẫn README.txt.  
